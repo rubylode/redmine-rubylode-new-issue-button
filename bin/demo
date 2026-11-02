@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Runs the throwaway Redmine this plugin is tried in, at http://localhost:3011.
+#
+#   ruby bin/demo up      start it, load the demo data once
+#   ruby bin/demo down    stop it, keep the data
+#   ruby bin/demo reset   stop it and wipe the data
+#
+# Logins: admin / admin, dana / demo-password-1 (may add issues in Orchard and Lighthouse only),
+# sam / demo-password-1 (may not add issues anywhere).
+require "net/http"
+
+ROOT = File.expand_path("..", __dir__)
+PORT = 3011
+READY_SECONDS = 240
+
+def compose(*arguments)
+  system("docker", "compose", *arguments, chdir: ROOT) || abort("docker compose #{arguments.join(' ')} failed")
+end
+
+def wait_until_ready
+  uri = URI("http://localhost:#{PORT}/login")
+  deadline = Time.now + READY_SECONDS
+  loop do
+    begin
+      return puts("Redmine is up at #{uri.host}:#{uri.port}") if Net::HTTP.get_response(uri).code == "200"
+    rescue SystemCallError, EOFError, Net::ReadTimeout
+      nil
+    end
+    abort("Redmine did not answer within #{READY_SECONDS} seconds") if Time.now > deadline
+    sleep 3
+  end
+end
+
+case ARGV.first
+when "up"
+  compose("up", "-d")
+  wait_until_ready
+  compose("exec", "-T", "redmine", "bin/rails", "runner", "/usr/src/redmine/plugins/redmine_rubylode_new_issue_button/script/demo_seed.rb")
+when "down"
+  compose("down")
+when "reset"
+  compose("down", "-v")
+else
+  abort(File.read(__FILE__)[/\A#!.*?\n\n((?:#.*\n)+)/m, 1].to_s.gsub(/^# ?/, ""))
+end

@@ -1,0 +1,22 @@
+/* A plain button that works on Redmine's default look; a theme can restyle a.rubylode-new-issue-button.
+   The #header prefix is needed to beat the header's own white link colour. */
+#header a.rubylode-new-issue-button {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 3px 10px;
+  border: 1px solid #628db6;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #1e5a8a;
+  font-weight: bold;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#header a.rubylode-new-issue-button:hover { background: #eef5fd; color: #1e5a8a; text-decoration: none; }
+#header #quick-search a.rubylode-new-issue-button { float: left; margin-top: 0; }
+
+/* The phone header has its own menu with the same link. */
+@media screen and (max-width: 899px) {
+  #header a.rubylode-new-issue-button { display: none; }
+}
