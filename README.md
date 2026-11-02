@@ -13,11 +13,11 @@ Contents:
 - [Details](#details)
 - [Try it](#try-it)
 - [Tests](#tests)
+- [Releasing](#releasing)
 - [License](#license)
-- [Disclaimer](#disclaimer)
 
-Redmine only offers a way to start a ticket inside a project (the "+" menu). On the global issue list, My page,
-Activity and the administration pages there is none. This plugin puts one button on every page.
+Redmine lets you start a ticket only inside a project (the "+" menu). On the global issue list, My page, Activity and the
+administration pages there is no way to. This plugin adds one button that works on every page.
 
 Inside a project:
 
@@ -31,12 +31,11 @@ On any other page:
 
 - Inside a project the button opens that project's new issue form. Anywhere else it opens the global form, which asks
   for the project.
-- The server decides. The button shows for a signed-in user who may add issues, with the label in the user's language,
-  and not at all for anyone else.
+- The button shows for a signed-in user who may add issues, with the label in the user's language. Nobody else sees it.
 - It sits as the first thing in the search box area, or first in the header on a page that has no search box.
-- It has no dependency on a theme. A theme can restyle it, see [Styling](#styling).
+- It works with any theme, and a theme can restyle it (see [Styling](#styling)).
 - The phone layout hides it, because Redmine's own phone menu has the link.
-- No migration, no setting, no extra gem, no JavaScript library.
+- It needs no migration, setting, gem or JavaScript library.
 
 ## Installation
 
@@ -50,7 +49,7 @@ Redmine 7.x. The folder must be named `redmine_rubylode_new_issue_button`, the s
    Or unpack a [release archive](https://github.com/rubylode/redmine-rubylode-new-issue-button/releases) there, as
    `redmine_rubylode_new_issue_button`.
 
-2. Restart Redmine ([Passenger](https://www.phusionpassenger.com), [Puma](https://puma.io), whatever serves it).
+2. Restart Redmine ([Passenger](https://www.phusionpassenger.com), [Puma](https://puma.io) or whatever serves it).
 
 With [Docker](https://www.docker.com), mount or copy the plugin to
 `/usr/src/redmine/plugins/redmine_rubylode_new_issue_button` and restart the container.
@@ -61,19 +60,19 @@ To remove it, delete the folder and restart. The plugin changes nothing in the d
 
 ## Compatibility
 
-Redmine 7.x. Tested on Redmine 7.0.2 and the 7.0 stable branch, with Ruby 3.4 and 4.0. Older Redmine versions are not tested.
+Redmine 7.x. Tested on Redmine 7.0.2 and the 7.0 stable branch, with Ruby 3.4 and 4.0. Older Redmine versions are not supported.
 
 ## Styling
 
 The button is one link, `a.rubylode-new-issue-button`, inside `#quick-search` (or directly inside `#header` on a page
-without a search box). That class is the only one the plugin adds. There is no separate compatibility class.
+without a search box). That is the only class the plugin adds.
 
-The plugin's stylesheet ships with a plain white button that suits Redmine's default theme, and every rule starts with
-`#header`, because the header colours its links white and an unprefixed rule loses to that.
+The plugin's stylesheet makes a plain white button that suits Redmine's default theme. Every rule starts with `#header`,
+because the header colours its links white and an unprefixed rule loses to that.
 
-A theme overrides it with its own stylesheet. Redmine loads the plugin stylesheets after the theme's, in alphabetical
-order, so when two rules have the same specificity the plugin's wins. Give the theme's rule more weight than the
-plugin's `#header a.rubylode-new-issue-button`, by putting `body` in front:
+A theme overrides it with its own stylesheet. Redmine loads plugin stylesheets after the theme's, in alphabetical order,
+so when two rules have the same specificity the plugin's wins. Put `body` in front to give the theme's rule more weight
+than the plugin's `#header a.rubylode-new-issue-button`:
 
     body #header a.rubylode-new-issue-button {
       background: #d33f49;
@@ -82,16 +81,16 @@ plugin's `#header a.rubylode-new-issue-button`, by putting `body` in front:
     }
     body #header a.rubylode-new-issue-button:hover { background: #b6323b; color: #fff; }
 
-Write `#header` and `body` in the theme's rule. Without them the plugin's rule wins and the theme change seems to do
-nothing. Avoid `!important`. To hide the button on a layout, set `display: none` the same way.
+Without `#header` and `body` the plugin's rule wins and your change seems to do nothing. Avoid `!important`. To hide the
+button on a layout, set `display: none` the same way.
 
 ## Details
 
 `lib/redmine_rubylode_new_issue_button/hooks.rb` adds the stylesheet to the page head and, at the end of the body, a
 script tag that carries the address and the label as `data-href` and `data-label`.
 `assets/javascripts/rubylode_new_issue_button.js` inserts the link as the first child of `#quick-search` (or of
-`#header` when a page has no search box). The script sits after the header in the page, so the button appears with the
-first paint instead of jumping in later.
+`#header` when a page has no search box). The script sits after the header in the page, so the button shows up with the
+first paint.
 
 ## Try it
 
@@ -102,8 +101,8 @@ A throwaway Redmine 7 runs from this folder, with the repository mounted as the 
 
 The first start loads made-up demo data: three private projects and three people. Sign in as `admin` / `admin`,
 as `dana` (may add issues in Orchard and Lighthouse only) or as `sam` (may not add issues anywhere), both with the
-password `demo-password-1`. `docker compose up -d` alone starts a bare Redmine instead. Stop it with
-`ruby bin/demo down`, wipe it with `ruby bin/demo reset`.
+password `demo-password-1`. `docker compose up -d` alone starts a bare Redmine. Stop the demo with `ruby bin/demo down`
+and wipe it with `ruby bin/demo reset`.
 
 With Node and Chrome installed, run `npm install` once, then `npm run check` tests the button in the running demo and
 `npm run screenshots` retakes the pictures above.
@@ -113,9 +112,9 @@ With Node and Chrome installed, run `npm install` once, then `npm run check` tes
     bin/test                                              all integration tests
     bin/test test/integration/new_issue_button_test.rb    one file
 
-They run in a Redmine 7 image with its test gems (`docker/test.Dockerfile`) and check the page a browser would get:
-the form a member is sent to inside a project, the global form outside one, no button for a signed-out visitor, and
-the assets in place.
+They run in a Redmine 7 image with its test gems (`docker/test.Dockerfile`) and check the page a browser would get: the
+form a member is sent to inside a project, the global form outside one, no button for a signed-out visitor, and the
+assets in place.
 
 Pull Requests are welcome!
 
@@ -123,19 +122,12 @@ Pull Requests are welcome!
 
 Push a `vX.Y.Z` tag whose version matches `version` in `init.rb` and has an entry in `CHANGELOG.md`. CI runs the tests, builds `redmine_rubylode_new_issue_button-X.Y.Z.zip` and publishes the GitHub release with the changelog entry as its notes. To build a release for a tag that already exists, use Actions, release, Run workflow.
 
-The text to paste when listing the plugin on www.redmine.org, and how to read the result of Check for updates, is in [docs/redmine-org-listing.md](docs/redmine-org-listing.md).
+The text for the www.redmine.org listing, and how to read the result of Check for updates, is in [docs/redmine-org-listing.md](docs/redmine-org-listing.md).
 
 ## License
 
 GNU General Public License, version 2 or (at your option) any later version, the same as Redmine. See `LICENSE`.
 
-Copyright (C) 2026 Nick Gorbikoff. Each Ruby file carries the same short notice Redmine puts on its own.
+Copyright (C) 2026  Nick Gorbikoff
 
-## Disclaimer
-
-Use it at your own risk. It comes with no warranty of any kind, as the license says: the software is provided "as is",
-without any promise that it works, that it fits your purpose or that it's free of bugs. I'm not liable for any damage,
-data loss or downtime that comes from using it, installing it or removing it.
-
-The plugin adds a script and a stylesheet to every page of your Redmine. Try it on a test instance first. I've tested
-it on Redmine 7.0.2 and the 7.0 stable branch, and nothing else.
+No warranty, as the GPL says. The plugin adds a script and a stylesheet to every page, so try it on a copy of your tracker before the real one.
