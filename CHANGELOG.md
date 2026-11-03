@@ -2,6 +2,18 @@
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.2] - 2026-11-03
+
+### Added
+
+- A Rubylode thumbnail at the top of the README.
+
+### Changed
+
+- The README is plainer and has a licence section.
+- The changelog entries are plainer.
+- The release build writes the checksum file inside the build step.
+
 ## [1.0.1] - 2026-11-02
 
 ### Added

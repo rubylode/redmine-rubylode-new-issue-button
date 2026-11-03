@@ -1,5 +1,7 @@
 # Rubylode New issue button for Redmine
 
+<p><img src="docs/thumbnail.png" alt="Rubylode New issue button plugin" width="160"></p>
+
 [![tests](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/tests.yml/badge.svg)](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/tests.yml)
 
 TL;DR: a New issue button in front of the search box on every [Redmine](https://www.redmine.org) page.
