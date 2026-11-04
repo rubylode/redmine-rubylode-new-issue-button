@@ -41,7 +41,7 @@ On any other page:
 
 ## Installation
 
-Redmine 7.x. The folder must be named `redmine_rubylode_new_issue_button`, the same as the plugin id.
+Redmine 5.0 or newer. The folder must be named `redmine_rubylode_new_issue_button`, the same as the plugin id.
 
 1. Put the plugin in your Redmine's `plugins` folder:
 
@@ -62,7 +62,7 @@ To remove it, delete the folder and restart. The plugin changes nothing in the d
 
 ## Compatibility
 
-Redmine 7.x. Tested on Redmine 7.0.2 and the 7.0 stable branch, with Ruby 3.4 and 4.0. Older Redmine versions are not supported.
+Redmine 5.0 or newer. Tested in CI with the Rubylode plugins' own test suites on Redmine 7.0, 6.1, 6.0, 5.1 and 5.0. Older Redmine versions are not supported.
 
 ## Styling
 
