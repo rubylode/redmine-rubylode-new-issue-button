@@ -59,4 +59,21 @@ class NewIssueButtonTest < Redmine::IntegrationTest
     assert_equal "Rubylode", plugin.author
     assert_equal "https://github.com/rubylode", plugin.author_url
   end
+  test "the plugin module is RubylodeNewIssueButton and the version is 2.0.0" do
+    assert defined?(RubylodeNewIssueButton::Hooks)
+    assert_equal "2.0.0", Redmine::Plugin.find(:redmine_rubylode_new_issue_button).version
+  end
+
+  test "the README has the standard headings in order, with the four install steps" do
+    readme = File.read(File.expand_path("../../README.md", __dir__))
+    headings = readme.scan(/^## (.+)$/).flatten
+    assert_equal ["Install", "Settings", "Where it shows", "Troubleshooting", "Tests", "License"], headings
+    install = readme[/^## Install$(.*?)^## /m, 1]
+    assert_equal 4, install.scan(/^\d\. /).size
+  end
+
+  test "the changelog has a 2.0.0 entry" do
+    changelog = File.read(File.expand_path("../../CHANGELOG.md", __dir__))
+    assert_match(/^## \[2\.0\.0\] - Unreleased$/, changelog)
+  end
 end

@@ -17,7 +17,7 @@
 
 # frozen_string_literal: true
 
-module RedmineRubylodeNewIssueButton
+module RubylodeNewIssueButton
   # Redmine only offers a "New issue" link inside a project (the "+" menu). This puts one on every page for a user
   # who may add issues. The server decides whether to show it and where it goes (the project's form inside a
   # project, the global form elsewhere) and hands that to the script, so the label is translated and the button
@@ -29,7 +29,7 @@ module RedmineRubylodeNewIssueButton
       stylesheet_link_tag('rubylode_new_issue_button', plugin: PLUGIN)
     end
 
-    # The script sits at the end of the body, so it runs as soon as the header above it exists, before the first paint.
+    # The script sits at the end of the body, so it runs as soon as the header above it exists.
     def view_layouts_base_body_bottom(context)
       path = new_issue_path(context[:hook_caller], context[:project])
       return if path.nil?
