@@ -62,7 +62,7 @@ permissions: a signed-in user who may add issues sees it, with the label in the 
 - It sits as the first thing in the search box area, or first in the header on a page that has no search box.
 - The phone layout hides it, because Redmine's own phone menu has the link.
 
-`lib/redmine_rubylode_new_issue_button/hooks.rb` adds the stylesheet to the page head and, at the end of the body, a
+`lib/rubylode_new_issue_button/hooks.rb` adds the stylesheet to the page head and, at the end of the body, a
 script tag that carries the address and the label as `data-href` and `data-label`.
 `assets/javascripts/rubylode_new_issue_button.js` inserts the link as the first child of `#quick-search` (or of
 `#header` when a page has no search box). The script sits after the header in the page, so the button should be there

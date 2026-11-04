@@ -16,7 +16,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 require "redmine"
-require_relative "lib/redmine_rubylode_new_issue_button/hooks"
+require_relative "lib/rubylode_new_issue_button/hooks"
 
 Redmine::Plugin.register :redmine_rubylode_new_issue_button do
   name "Rubylode New issue button"
