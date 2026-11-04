@@ -2,7 +2,12 @@
 
 <p><img src="docs/thumbnail.png" alt="Rubylode New issue button plugin" width="160"></p>
 
-[![tests](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/tests.yml/badge.svg)](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/tests.yml)
+[![tests](https://img.shields.io/github/actions/workflow/status/rubylode/redmine-rubylode-new-issue-button/tests.yml?branch=main&label=tests)](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/tests.yml)
+[![security](https://img.shields.io/github/actions/workflow/status/rubylode/redmine-rubylode-new-issue-button/security.yml?branch=main&label=security)](https://github.com/rubylode/redmine-rubylode-new-issue-button/actions/workflows/security.yml)
+[![version](https://img.shields.io/github/v/tag/rubylode/redmine-rubylode-new-issue-button?sort=semver&label=version)](https://github.com/rubylode/redmine-rubylode-new-issue-button/tags)
+[![license](https://img.shields.io/github/license/rubylode/redmine-rubylode-new-issue-button)](https://github.com/rubylode/redmine-rubylode-new-issue-button/blob/main/LICENSE)
+![Redmine](https://img.shields.io/badge/Redmine-5.1%20%7C%206.0%20%7C%206.1%20%7C%207.0-b22222)
+![Ruby](https://img.shields.io/badge/Ruby-3.2%20%7C%203.3%20%7C%203.4%20%7C%204.0-cc342d)
 
 TL;DR: a New issue button in front of the search box on every [Redmine](https://www.redmine.org) page.
 
