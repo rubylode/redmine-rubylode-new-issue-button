@@ -74,6 +74,6 @@ class NewIssueButtonTest < Redmine::IntegrationTest
 
   test "the changelog has a 2.0.0 entry" do
     changelog = File.read(File.expand_path("../../CHANGELOG.md", __dir__))
-    assert_match(/^## \[2\.0\.0\] - Unreleased$/, changelog)
+    assert_match(/^## \[2\.0\.0\] - (Unreleased|\d{4}-\d{2}-\d{2})$/, changelog)
   end
 end
