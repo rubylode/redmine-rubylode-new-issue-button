@@ -59,9 +59,9 @@ class NewIssueButtonTest < Redmine::IntegrationTest
     assert_equal "Rubylode", plugin.author
     assert_equal "https://github.com/rubylode", plugin.author_url
   end
-  test "the plugin module is RubylodeNewIssueButton and the version is 2.0.0" do
+  test "the plugin module is RubylodeNewIssueButton and the version has the form x.y.z" do
     assert defined?(RubylodeNewIssueButton::Hooks)
-    assert_equal "2.0.0", Redmine::Plugin.find(:redmine_rubylode_new_issue_button).version
+    assert_match(/\A\d+\.\d+\.\d+\z/, Redmine::Plugin.find(:redmine_rubylode_new_issue_button).version)
   end
 
   test "the README has the standard headings in order, with the four install steps" do

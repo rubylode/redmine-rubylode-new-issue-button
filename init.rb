@@ -24,6 +24,6 @@ Redmine::Plugin.register :redmine_rubylode_new_issue_button do
   author_url "https://github.com/rubylode"
   url "https://github.com/rubylode/redmine-rubylode-new-issue-button"
   description "A New issue button in front of the search box on every page, inside a project or not, for users who may add issues"
-  version "2.0.0"
+  version "2.1.0"
   requires_redmine version_or_higher: "5.1.0"
 end

@@ -13,11 +13,11 @@ The text to paste at www.redmine.org, Plugins, New plugin. Redmine's "Check for 
 
 ## Notes for this version
 
-Version 2.0.0. Needs Redmine 5.1 or newer. Installation is described in the README at https://github.com/rubylode/redmine-rubylode-new-issue-button.
+Version 2.1.0. Needs Redmine 5.1 or newer. Installation is described in the README at https://github.com/rubylode/redmine-rubylode-new-issue-button.
 
 ## File to upload
 
-`redmine_rubylode_new_issue_button-2.0.0.zip`, the file the GitHub release workflow publishes when a `v2.0.0` tag is pushed. Upload the same file that is attached to the GitHub release.
+`redmine_rubylode_new_issue_button-2.1.0.zip`, the file the GitHub release workflow publishes when a `v2.0.0` tag is pushed. Upload the same file that is attached to the GitHub release.
 
 ## Checking the result
 

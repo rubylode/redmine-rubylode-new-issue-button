@@ -2,6 +2,15 @@
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.1.0] - 2026-11-05
+
+No change to what the plugin does. This release carries the documentation and the build.
+
+### Changed
+
+- The workflows use the current versions of the GitHub actions, and Dependabot sends one grouped update a month instead of one pull request per action.
+- The version number is no longer asserted exactly by the tests, so a release does not need a test edit.
+
 ## [2.0.0] - 2026-11-04
 
 Brings the plugin to the Rubylode plugin standard.
@@ -65,5 +74,6 @@ First release. Redmine 7.0 and newer.
 
 - The label was white on white in Redmine's default theme, because the header's link color won over the plugin's.
 
+[2.1.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v1.1.1...v2.0.0
 [1.0.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/releases/tag/v1.0.0
