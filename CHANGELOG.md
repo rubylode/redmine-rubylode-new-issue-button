@@ -2,7 +2,7 @@
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [2.0.0] - Unreleased
+## [2.0.0] - 2026-11-04
 
 Brings the plugin to the Rubylode plugin standard.
 
@@ -65,4 +65,5 @@ First release. Redmine 7.0 and newer.
 
 - The label was white on white in Redmine's default theme, because the header's link color won over the plugin's.
 
+[2.0.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v1.1.1...v2.0.0
 [1.0.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/releases/tag/v1.0.0
