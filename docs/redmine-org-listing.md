@@ -13,15 +13,15 @@ The text to paste at www.redmine.org, Plugins, New plugin. Redmine's "Check for 
 
 ## Notes for this version
 
-Version 2.1.0. Needs Redmine 5.1 or newer. Installation is described in the README at https://github.com/rubylode/redmine-rubylode-new-issue-button.
+Version 2.1.1. Needs Redmine 5.1 or newer. Installation is described in the README at https://github.com/rubylode/redmine-rubylode-new-issue-button.
 
 ## File to upload
 
-`redmine_rubylode_new_issue_button-2.1.0.zip`, the file the GitHub release workflow publishes when a `v2.0.0` tag is pushed. Upload the same file that is attached to the GitHub release.
+`redmine_rubylode_new_issue_button-2.1.1.zip`, the file the GitHub release workflow publishes when a `v2.1.1` tag is pushed. Upload the same file that is attached to the GitHub release.
 
 ## Checking the result
 
-The name, author and version in the listing must match what the plugin registers (`Rubylode New issue button`, `Rubylode`, `2.0.0`). When they do, Administration, Plugins, Check for updates shows:
+The name, author and version in the listing must match what the plugin registers (`Rubylode New issue button`, `Rubylode`, `2.1.1`). When they do, Administration, Plugins, Check for updates shows:
 
 - a green tick: the installed version is the latest one listed on redmine.org;
 - an amber warning: redmine.org lists a newer version than the installed one;
