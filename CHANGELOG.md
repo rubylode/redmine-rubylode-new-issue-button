@@ -2,6 +2,14 @@
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.1.2] - 2026-11-19
+
+No change to what the plugin does.
+
+### Changed
+
+- The release zip holds only what Redmine needs: the tests, the docs and the development scripts are left out.
+
 ## [2.1.1] - 2026-11-19
 
 No change to what the plugin does.
@@ -82,6 +90,7 @@ First release. Redmine 7.0 and newer.
 
 - The label was white on white in Redmine's default theme, because the header's link color won over the plugin's.
 
+[2.1.2]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/rubylode/redmine-rubylode-new-issue-button/compare/v1.1.1...v2.0.0
